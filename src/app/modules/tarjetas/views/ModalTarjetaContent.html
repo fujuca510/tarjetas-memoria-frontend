@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <h3 class="modal-title" id="modal-title">Nueva tarjeta</h3>
+</div>
+<div class="modal-body" id="modal-body">
+  <form>
+    <div class="form-group">
+      <label for="texto_referencia">Texto referencia:</label>
+      <input type="text" class="form-control" id="texto_referencia" ng-model="vm.datos.texto_referencia">
+    </div>
+    <div class="form-group">
+      <label for="texto_memoria">Texto memoria:</label>
+      <input type="text" class="form-control" id="texto_memoria" ng-model="vm.datos.texto_memoria">
+    </div>
+    <div class="form-group">
+      <label for="grupo">Grupo:</label>
+      <select id="grupo" class="form-control" ng-model="vm.datos.grupo">
+        <option>VERBOS</option>
+        <option>PROFESIONES</option>
+        <option>NUMEROS</option>
+        <option>COSAS</option>
+      </select>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" type="button" ng-click="vm.aceptar()">Aceptar</button>
+  <button class="btn btn-warning" type="button" ng-click="vm.cancelar()">Cancelar</button>
+</div>
