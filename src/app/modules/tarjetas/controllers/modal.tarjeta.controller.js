@@ -3,13 +3,13 @@
 
   angular
     .module('app.tarjeta')
-    .controller('ModalTarjetaCtrl', ModalTarjetaCtrl);
+    .controller('ModalTarjetaController', ModalTarjetaController);
 
-  ModalTarjetaCtrl.$inject = [
+  ModalTarjetaController.$inject = [
     '$uibModalInstance'
   ];
   /* @ngInject */
-  function ModalTarjetaCtrl($uibModalInstance) {
+  function ModalTarjetaController($uibModalInstance) {
     var vm = this;
     // Definición de los datos de modal
     vm.datos = {};

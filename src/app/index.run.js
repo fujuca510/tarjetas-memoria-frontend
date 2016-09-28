@@ -7,7 +7,7 @@
 
   /** @ngInject */
   function runBlock($log) {
-
+    $log.log('Index run');
   }
 
 })();

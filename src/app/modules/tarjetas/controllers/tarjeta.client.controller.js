@@ -1,3 +1,5 @@
+/*eslint-disable no-unused-vars*/
+
 (function() {
   'use strict';
 
@@ -6,19 +8,22 @@
     .controller('TarjetaController', TarjetaController);
 
   TarjetaController.$inject = [
-    '$log', '$uibModal', 'Tarjeta', '_'
+    '$log', '$uibModal', 'toastr', 'Tarjeta', '_'
   ];
   /* @ngInject */
-  function TarjetaController($log, $uibModal, Tarjeta, _) {
+  function TarjetaController($log, $uibModal, toastr, Tarjeta, _) {
     var vm = this;
 
-    vm.abrirVentanaRegTarjeta = function (size) {
+    // Definición de funciones
+    vm.abrirVentanaRegTarjeta = abrirVentanaRegTarjeta;
+
+    function abrirVentanaRegTarjeta(size) {
       var modalInstance = $uibModal.open({
         animation: true,
         ariaLabelledBy: 'modal-title',
         ariaDescribedBy: 'modal-body',
         templateUrl: '../app/modules/tarjetas/views/ModalTarjetaContent.html',
-        controller: 'ModalTarjetaCtrl',
+        controller: 'ModalTarjetaController',
         controllerAs: 'vm',
         size: size
       });
@@ -29,9 +34,10 @@
       }, function() {
         $log.debug('Modal dismiss');
       }).then(function(resultado){
+        toastr.success('Registro de tarjeta realizado correctamente.');
         cargarTarjetas();
       });
-    };
+    }
 
 
     // Formato de cards que maneja la directiva flash-card-set
